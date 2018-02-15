@@ -94,7 +94,7 @@ export const addNewPost = (post) => dispatch => {
 }
 
 export const getPostById = (id) => dispatch => {
-  return readableAPI.getPostById(post).then((post) => {
+  return readableAPI.getPostById(id).then((post) => {
     dispatch(getPostByIdSuccess(post))
   })
   .catch(error => {
@@ -139,7 +139,7 @@ export const deleteComment = (id) => dispatch => {
 }
 
 export const addComment = (comment) => dispatch => {
-  return readableAPI.addComment(id).then((comment) => {
+  return readableAPI.addComment(comment).then((comment) => {
     dispatch(addCommentSuccess(comment))
   })
   .catch(error => {

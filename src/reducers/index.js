@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 import * as types from '../actions/actionTypes';
 
 function categoryReducer(state = [], action) {
@@ -12,6 +13,8 @@ function categoryReducer(state = [], action) {
 
 function postReducer(state = [], action) {
     switch (action.type) {
+        case  types.GET_POSTS:
+            return Object.assign([], state, action.posts)
         default:
             return state;
     }
@@ -20,4 +23,5 @@ function postReducer(state = [], action) {
 export default combineReducers({
     categoryReducer,
     postReducer,
+    routing: routerReducer
 });
