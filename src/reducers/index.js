@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
 import * as types from '../actions/actionTypes';
+import sortBy from 'sort-by'
 
 function categoryReducer(state = [], action) {
     const { categories } = action
@@ -13,7 +14,7 @@ function categoryReducer(state = [], action) {
 }
 
 function postReducer(state = [], action) {
-    const { posts, post } = action
+    const { posts, post, sortType } = action
     switch (action.type) {
         case types.GET_POSTS:
             return [...posts];
@@ -24,6 +25,8 @@ function postReducer(state = [], action) {
                     return postInState
                 })
             );
+        case types.SORT_POST:
+            return [].concat(state.sort(sortBy("-" + sortType)))
         default:
             return state;
     }

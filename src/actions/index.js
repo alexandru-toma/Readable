@@ -57,6 +57,10 @@ export const editCommentSuccess = (comment) => {
   return { type: types.EDIT_COMMENT, comment };
 }
 
+export const postSortOrder = (sortType) => {
+  return { type: types.SORT_POST, sortType }
+}
+
 export const getCategories = () => dispatch => {
   return readableAPI.getCategories().then((categories) => {
     dispatch(getCategoriesSuccess(categories));
@@ -79,106 +83,106 @@ export const getPosts = () => dispatch => {
   return readableAPI.getPosts().then((posts) => {
     dispatch(getPostsSucces(posts))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const addNewPost = (post) => dispatch => {
   return readableAPI.addNewPost(post).then((post) => {
     dispatch(addNewPostSuccess(post))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const getPostById = (id) => dispatch => {
   return readableAPI.getPostById(id).then((post) => {
     dispatch(getPostByIdSuccess(post))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const votePost = (id, voteType) => dispatch => {
   return readableAPI.votePost(id, voteType).then((post) => {
     dispatch(votePostSuccess(post))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const editPost = (id, title, body) => dispatch => {
   return readableAPI.editPost(id, title, body).then((post) => {
     dispatch(editPostSuccess(post))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const deletePost = (id) => dispatch => {
   return readableAPI.deletePost(id).then((post) => {
     dispatch(deletePostSuccess(post))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const deleteComment = (id) => dispatch => {
   return readableAPI.deleteComment(id).then((comment) => {
     dispatch(deleteCommentSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const addComment = (comment) => dispatch => {
   return readableAPI.addComment(comment).then((comment) => {
     dispatch(addCommentSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const getCommentsByPost = (id) => dispatch => {
   return readableAPI.getCommentsByPost(id).then((comment) => {
     dispatch(getCommentsByPostSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const getCommentDetails = (id) => dispatch => {
   return readableAPI.getCommentDetails(id).then((comment) => {
     dispatch(getCommentDetailsSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const voteComments = (id, typeOfVote) => dispatch => {
   return readableAPI.voteComments(id, typeOfVote).then((comment) => {
     dispatch(voteCommentsSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }
 
 export const editComment = (id, body) => dispatch => {
   return readableAPI.editComment(id, body).then((comment) => {
     dispatch(editCommentSuccess(comment))
   })
-  .catch(error => {
-    throw(error)
-  });
+    .catch(error => {
+      throw (error)
+    });
 }

@@ -12,3 +12,4 @@ export const GET_COMMENT_DETAILS = 'GET_COMMENT_DETAILS';
 export const VOTE_COMMENTS = 'VOTE_COMMENTS';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const SORT_POST = 'SORT_POST';
