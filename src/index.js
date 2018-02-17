@@ -8,11 +8,13 @@ import registerServiceWorker from './registerServiceWorker';
 import { routerMiddleware } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
 import CategoryView from "./components/CategoryView";
+import PostDetail from "./components/post/PostDetail";
 import NotFound from "./components/NotFound";
+
 
 export const history = createHistory()
 
@@ -32,11 +34,12 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store} >
         <ConnectedRouter history={history}>
-        <div className="content">
-        <Route exact path="/" component={App} />
-        <Route exact path="/:category" component={CategoryView} />
-        <Route component={NotFound} />
-      </div>
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route exact path="/:category" component={CategoryView} />
+                <Route exact path="/:category/:postId" component={PostDetail} />
+                <Route component={NotFound} />
+            </Switch>
         </ConnectedRouter>
     </Provider>, document.getElementById('root'));
-registerServiceWorker()
+registerServiceWorker();
