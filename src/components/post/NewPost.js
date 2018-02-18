@@ -15,6 +15,7 @@ class NewPost extends Component {
         getCategories();    
         
     }
+    
     onSubmit = (e) => {
         e.preventDefault();
         console.log(e)
@@ -90,6 +91,7 @@ class NewPost extends Component {
         )
     }
 }
+
 function mapStateToProps(state) {
     return {
         categories: state.categoryReducer

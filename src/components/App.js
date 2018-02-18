@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 class App extends Component {
   componentWillMount() {
     const { getCategories, getAllPosts } = this.props
-    getCategories();
     getAllPosts();
+    getCategories();
   }
 
   render() {

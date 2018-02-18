@@ -13,6 +13,23 @@ function categoryReducer(state = [], action) {
     }
 }
 
+function commentReducer(state=[], action){
+    const { comments, comment } = action
+    switch (action.type) {
+        case  types.GET_COMMENTS_BY_POST:
+            return [...comments];
+        case types.VOTE_COMMENTS:
+            return (
+                state.map(commentInState => {
+                    if (commentInState.id === comment.id) { commentInState = comment }
+                    return commentInState
+                })
+            );
+        default:
+            return state;
+    }
+}
+
 function postReducer(state = [], action) {
     const { posts, post, sortType } = action
     switch (action.type) {
@@ -31,6 +48,8 @@ function postReducer(state = [], action) {
             return state.concat([post]);
         case types.GET_POSTS_BY_CATEGORY:
             return [...posts];
+        case types.GET_POST_BY_ID:
+            return [post];
         default:
             return state;
     }
@@ -39,5 +58,6 @@ function postReducer(state = [], action) {
 export default combineReducers({
     categoryReducer,
     postReducer,
+    commentReducer,
     routing: routerReducer
 });

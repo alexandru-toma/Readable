@@ -35,7 +35,10 @@ export const addNewPost = (post) =>
     .then(data => data)
 
 export const getPostById = (id) =>
-  fetch(`${api}/posts/${id}`, { headers })
+  fetch(`${api}/posts/${id}`, { 
+    method: 'GET',
+    headers 
+  })
     .then(res => res.json())
     .then(data => data)
 
@@ -95,6 +98,7 @@ export const voteComments = (id, typeOfVote) =>
     body: JSON.stringify({ option: typeOfVote })
   })
     .then(res => res.json)
+    .then(data => data)
 
 export const editComment = (id, body) =>
   fetch(`${api}/comments/${id}`, {

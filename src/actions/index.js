@@ -41,8 +41,8 @@ export const addCommentSuccess = (comment) => {
   return { type: types.ADD_COMMENT, comment };
 }
 
-export const getCommentsByPostSuccess = (comment) => {
-  return { type: types.GET_COMMENTS_BY_POST, comment };
+export const getCommentsByPostSuccess = (comments) => {
+  return { type: types.GET_COMMENTS_BY_POST, comments };
 }
 
 export const getCommentDetailsSuccess = (comment) => {
@@ -152,8 +152,8 @@ export const addComment = (comment) => dispatch => {
 }
 
 export const getCommentsByPost = (id) => dispatch => {
-  return readableAPI.getCommentsByPost(id).then((comment) => {
-    dispatch(getCommentsByPostSuccess(comment))
+  return readableAPI.getCommentsByPost(id).then((comments) => {
+    dispatch(getCommentsByPostSuccess(comments))
   })
     .catch(error => {
       throw (error)
