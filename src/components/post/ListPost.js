@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 import { connect } from 'react-redux'
 import { votePost, getPosts, postSortOrder } from '../../actions'
+import ListPostDetail from './ListPostDetail';
 
 class ListPost extends Component {
-    componentWillMount() {
-        const { getAllPosts } = this.props
-        getAllPosts();
-    }
-
     render() {
         const { posts, votePost, postSortOrder } = this.props
         return (
@@ -30,9 +26,9 @@ class ListPost extends Component {
                     </div>
                     <div className="col-sm-5"></div>
                     <div className="col-sm-2">
-                    <Link to={`posts/new`}>
-                        <button className="btn btn-info">
-                            <span class="glyphicon glyphicon-plus-sign"></span> Add post
+                        <Link to={`posts/new`}>
+                            <button className="btn btn-info">
+                                <span className="glyphicon glyphicon-plus-sign"></span> Add post
                         </button>
                         </Link>
                     </div>
@@ -40,28 +36,7 @@ class ListPost extends Component {
                 <ul>
                     {posts && posts.map((post) =>
                         <li key={post.id}>
-                            <div className="row">
-                                <div className="col-sm-1 post-likes">
-                                    <span onClick={() => { votePost(post.id, "upVote") }}>
-                                        <Glyphicon glyph="arrow-up" />
-                                    </span>
-                                    {post.voteScore}
-                                    <span onClick={() => { votePost(post.id, "downVote") }}>
-                                        <Glyphicon glyph="arrow-down" />
-                                    </span>
-                                </div>
-                                <div className="col-sm-11 post-title">
-                                    <Link to={`${post.category}/${post.id}`}>
-                                        <h3>{post.title}</h3>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="post-body">
-                                <h4>{post.body}</h4>
-                            </div>
-                            <div className="post-comment">
-                                <span>{post.commentCount && post.commentCount} comment/s</span>
-                            </div>
+                            <ListPostDetail post={post} votePost={votePost}/>
                         </li>)}
                 </ul>
             </div>
@@ -78,7 +53,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         votePost: (id, voteType) => dispatch(votePost(id, voteType)),
-        getAllPosts: () => dispatch(getPosts()),
         postSortOrder: (sortType) => dispatch(postSortOrder(sortType))
     }
 }

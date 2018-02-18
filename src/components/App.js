@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux'
-import { getCategories } from '../actions'
+import { getCategories,  getPosts } from '../actions'
 import ListPost from "./post/ListPost";
 import { Link } from "react-router-dom";
 
 class App extends Component {
   componentWillMount() {
-    const { getCategories } = this.props
+    const { getCategories, getAllPosts } = this.props
     getCategories();
+    getAllPosts();
   }
 
   render() {
@@ -17,14 +18,14 @@ class App extends Component {
       <div>
         <div className="all-categories">
           <h2>All categories</h2>
-          <ol>
+          <ul>
             {categories && categories.map((category) =>
               <li key={category.name}>
                 <Link to={`${category.path}`}>
                   <b>{category.name}</b>
                 </Link>
               </li>)}
-          </ol>
+          </ul>
         </div>
         <div className="all-posts">
           <h2>All Posts</h2>
@@ -43,7 +44,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getCategories: () => dispatch(getCategories())
+    getCategories: () => dispatch(getCategories()),
+    getAllPosts: () => dispatch(getPosts())
   }
 }
 

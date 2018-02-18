@@ -47,9 +47,8 @@ class NewPost extends Component {
             author: this.state.author,
             category: this.state.category
         };
-
-        this.props.addNewPost(postBody,() => {
-            this.props.history.push('/') });
+        this.props.addNewPost(postBody);
+        this.props.history.push('/');
     }
 
     render() {
@@ -73,7 +72,7 @@ class NewPost extends Component {
                         <input type="text" className="form-control" id="authorPost" placeholder="Author post"
                             required value={this.state.author} onChange={this.handleAuthorChange} />
                     </div>
-                    <select className="form-control" id={this.state.category}
+                    <select className="form-control" id={this.state.category} 
                         value={this.state.category} onChange={this.handleCategoryChange}>
                         <option value="noValue" disabled>Select category...</option>
                         {categories && categories.map(category =>

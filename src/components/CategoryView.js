@@ -1,10 +1,37 @@
-import React from 'react'
-const CategoryView = () => {
-    return (
-        <div>
-            <h1>Category View</h1>
-        </div>
-    );
+import React, {Component} from 'react'
+import {getPostsByCategory} from '../actions';
+import { connect } from 'react-redux';
+import ListPost from './post/ListPost';
+
+class CategoryView extends Component {
+    componentWillMount(){
+        const { getPostsByCategory } = this.props
+        getPostsByCategory(this.props.match.params.category);
+    }
+
+    render(){
+        return (
+            <div>
+                <h1>{this.props.match.params.category}</h1>
+                <ListPost/>
+            </div>
+        );
+    }
 }
 
-export default CategoryView;
+function mapStateToProps(state) {
+    return {
+        postsPerCategory: state.postReducer
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        getPostsByCategory: (category) => dispatch(getPostsByCategory(category))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CategoryView);

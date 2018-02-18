@@ -29,6 +29,8 @@ function postReducer(state = [], action) {
             return [].concat(state.sort(sortBy("-" + sortType)));
         case types.ADD_NEW_POST:
             return state.concat([post]);
+        case types.GET_POSTS_BY_CATEGORY:
+            return [...posts];
         default:
             return state;
     }
