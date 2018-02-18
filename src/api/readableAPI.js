@@ -32,6 +32,7 @@ export const addNewPost = (post) =>
     body: JSON.stringify(post)
   })
     .then(res => res.json())
+    .then(data => data)
 
 export const getPostById = (id) =>
   fetch(`${api}/posts/${id}`, { headers })

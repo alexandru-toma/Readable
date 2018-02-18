@@ -15,12 +15,27 @@ class ListPost extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <span onClick={() => { postSortOrder("voteScore") }}>Sort By: VoteScore
-                <Glyphicon glyph="glyphicon glyphicon-sort" />
-                    </span>
-                    <span onClick={() => { postSortOrder("timestamp") }}> Time
-               <Glyphicon glyph="glyphicon glyphicon-sort" />
-                    </span>
+                    <div className="col-sm-1">
+                        <span> Sort By: </span>
+                    </div>
+                    <div className="col-sm-2">
+                        <span onClick={() => { postSortOrder("voteScore") }}>VoteScore
+                        <Glyphicon glyph="glyphicon glyphicon-sort" />
+                        </span>
+                    </div>
+                    <div className="col-sm-2">
+                        <span onClick={() => { postSortOrder("timestamp") }}> Time
+                        <Glyphicon glyph="glyphicon glyphicon-sort" />
+                        </span>
+                    </div>
+                    <div className="col-sm-5"></div>
+                    <div className="col-sm-2">
+                    <Link to={`posts/new`}>
+                        <button className="btn btn-info">
+                            <span class="glyphicon glyphicon-plus-sign"></span> Add post
+                        </button>
+                        </Link>
+                    </div>
                 </div>
                 <ul>
                     {posts && posts.map((post) =>

@@ -14,6 +14,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import CategoryView from "./components/CategoryView";
 import PostDetail from "./components/post/PostDetail";
 import NotFound from "./components/NotFound";
+import NewPost from "./components/post/NewPost";
 
 
 export const history = createHistory()
@@ -37,7 +38,9 @@ ReactDOM.render(
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/:category" component={CategoryView} />
+                <Route exact path="/posts/new"  component={NewPost} />
                 <Route exact path="/:category/:postId" component={PostDetail} />
+                
                 <Route component={NotFound} />
             </Switch>
         </ConnectedRouter>
