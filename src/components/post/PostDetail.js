@@ -34,7 +34,7 @@ class PostDetail extends Component {
                             <span><b>Vote Score: </b>{singlePost.voteScore}</span>
                         </div> 
                         <div className="row">
-                             <ListCommentsForPost/>
+                             <ListCommentsForPost parentId={this.props.match.params.postId}/>
                         </div>
                     </span>
                 )}

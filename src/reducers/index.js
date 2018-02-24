@@ -26,6 +26,8 @@ function commentReducer(state=[], action){
                     return commentInState
                 })
             );
+        case types.ADD_COMMENT:
+            return state.concat([comment]);
         default:
             return state;
     }
