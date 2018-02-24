@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 
 class App extends Component {
   componentWillMount() {
-    const { getCategories, getAllPosts } = this.props
+    const { getCategories, getAllPosts } = this.props;
     getAllPosts();
     getCategories();
   }
 
   render() {
-    const { categories } = this.props
+    const { categories } = this.props;
     return (
       <div>
         <div className="all-categories">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getPostById} from '../../actions';
+import {getPostById, getCommentsByPost} from '../../actions';
 import { connect } from 'react-redux';
 import Timestamp from 'react-timestamp';
 import ListCommentsForPost from '../comment/ListCommentsForPost';
@@ -7,16 +7,16 @@ import ListCommentsForPost from '../comment/ListCommentsForPost';
 class PostDetail extends Component {
 
     componentWillMount() {
-        const { getPostById } = this.props
-        getPostById(this.props.match.params.postId)
-
+        const { getPostById, getCommentsByPost } = this.props
+        getPostById(this.props.match.params.postId) 
+        getCommentsByPost(this.props.match.params.postId)
     }
     render() {
         const { post } = this.props
         return (
             <div className="container">
-                <h2>Post Details</h2>
-                {post && post.map(singlePost =>
+                <h2>Post Details</h2>   
+                {post && post.map(singlePost =>   
                     <span key={singlePost.id}>
                         <div className="row">
                             <span><b>Title: </b> {singlePost.title}</span>
@@ -34,11 +34,10 @@ class PostDetail extends Component {
                             <span><b>Vote Score: </b>{singlePost.voteScore}</span>
                         </div> 
                         <div className="row">
-                             <ListCommentsForPost postId={singlePost.id}/>
+                             <ListCommentsForPost/>
                         </div>
                     </span>
                 )}
-              
             </div>
         )
     }
@@ -52,7 +51,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getPostById: (id) => dispatch(getPostById(id))
+        getPostById: (id) => dispatch(getPostById(id)),
+        getCommentsByPost: (id) => dispatch(getCommentsByPost(id))
     }
 }
 

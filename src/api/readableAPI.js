@@ -97,7 +97,7 @@ export const voteComments = (id, typeOfVote) =>
     headers,
     body: JSON.stringify({ option: typeOfVote })
   })
-    .then(res => res.json)
+    .then(res => res.json())
     .then(data => data)
 
 export const editComment = (id, body) =>

@@ -21,7 +21,8 @@ function commentReducer(state=[], action){
         case types.VOTE_COMMENTS:
             return (
                 state.map(commentInState => {
-                    if (commentInState.id === comment.id) { commentInState = comment }
+                    if (commentInState.id === comment.id) { 
+                        commentInState = comment }
                     return commentInState
                 })
             );
@@ -49,7 +50,7 @@ function postReducer(state = [], action) {
         case types.GET_POSTS_BY_CATEGORY:
             return [...posts];
         case types.GET_POST_BY_ID:
-            return [post];
+            return [post]
         default:
             return state;
     }
