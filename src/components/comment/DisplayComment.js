@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Modal from 'react-responsive-modal';
+import { connect } from 'react-redux';
+import { editComment } from '../../actions';
 
 class DisplayComment extends Component {
+    state = {
+        body: "",
+        openModal: false
+    }
+
     handleOnDelete = () => {
         this.props.deleteComment(this.props.comment.id);
     }
 
+    handleBodyChange = (e) => {
+        this.setState({ body: e.target.value });
+    }
+
+    onOpenModal = () => {
+        this.setState({ openModal: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ openModal: false });
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.editComment(this.props.comment.id, this.state.body);
+        this.onCloseModal();
+    }
+
     render() {
+        const { openModal } = this.state;
         return (
             <div className="container">
                 <div className="row">
@@ -37,7 +64,7 @@ class DisplayComment extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-1">
-                        <span onClick={() => { }}>edit</span>
+                        <span onClick={this.onOpenModal}>edit</span>
                     </div>
                     <div className="col-md-1">
                         <span onClick={() => {
@@ -45,9 +72,37 @@ class DisplayComment extends Component {
                         }}>delete</span>
                     </div>
                 </div>
+                <Modal open={openModal} onClose={this.onCloseModal} little>
+                    <h3>Edit comment</h3>
+                    <form className="needs-validation" noValidate onSubmit={this.onSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="bodyPost">Body:</label>
+                            <input type="text" className="form-control" id="bodyPost" placeholder="Body comment"
+                                required value={this.state.body} onChange={this.handleBodyChange} />
+                        </div>
+                        <br></br>
+                        <div className="row">
+                            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
+                        </div>
+                    </form>
+                </Modal>
             </div>
         );
     }
 }
 
-export default DisplayComment;
+function mapStateToProps(state) {
+    return {
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        editComment: (id, body) => dispatch(editComment(id, body)),
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DisplayComment);

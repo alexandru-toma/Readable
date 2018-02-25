@@ -35,9 +35,9 @@ export const addNewPost = (post) =>
     .then(data => data)
 
 export const getPostById = (id) =>
-  fetch(`${api}/posts/${id}`, { 
+  fetch(`${api}/posts/${id}`, {
     method: 'GET',
-    headers 
+    headers
   })
     .then(res => res.json())
     .then(data => data)
@@ -104,5 +104,8 @@ export const editComment = (id, body) =>
   fetch(`${api}/comments/${id}`, {
     method: 'PUT',
     headers,
-    body: JSON.stringify({ body, timestamp: Date.now() })
-  }) 
+    body: JSON.stringify({ timestamp: Date.now(), body })
+  })
+
+    .then(res => res.json())
+    .then(data => data)

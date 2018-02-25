@@ -35,7 +35,15 @@ function commentReducer(state=[], action){
                         commentInState = comment }
                     return commentInState
                 })
-            )
+            );
+        case types.EDIT_COMMENT:
+            return (
+                state.map(commentInState => {
+                    if (commentInState.id === comment.id) { 
+                        commentInState = comment }
+                    return commentInState
+            })
+        );
         default:
             return state;
     }
