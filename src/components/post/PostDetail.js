@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getPostById, getCommentsByPost} from '../../actions';
+import {getPostById, getCommentsByPost, deletePost} from '../../actions';
 import { connect } from 'react-redux';
 import Timestamp from 'react-timestamp';
 import ListCommentsForPost from '../comment/ListCommentsForPost';
@@ -7,10 +7,16 @@ import ListCommentsForPost from '../comment/ListCommentsForPost';
 class PostDetail extends Component {
 
     componentWillMount() {
-        const { getPostById, getCommentsByPost } = this.props
+        const { getPostById, getCommentsByPost} = this.props
         getPostById(this.props.match.params.postId) 
         getCommentsByPost(this.props.match.params.postId)
     }
+
+    handleOnDelete = () => {
+        this.props.deletePost(this.props.match.params.postId);
+        this.props.history.push('/');
+    }
+
     render() {
         const { post } = this.props
         return (
@@ -34,8 +40,19 @@ class PostDetail extends Component {
                             <span><b>Vote Score: </b>{singlePost.voteScore}</span>
                         </div> 
                         <div className="row">
+                            <div className="col-md-1">
+                                <span onClick={() => { }}>edit</span>
+                            </div>
+                            <div className="col-md-1">
+                                <span onClick={() => {
+                                    this.handleOnDelete()
+                                }}>delete</span>
+                            </div>
+                        </div>
+                        <div className="row">
                              <ListCommentsForPost parentId={this.props.match.params.postId}/>
                         </div>
+
                     </span>
                 )}
             </div>
@@ -52,7 +69,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         getPostById: (id) => dispatch(getPostById(id)),
-        getCommentsByPost: (id) => dispatch(getCommentsByPost(id))
+        getCommentsByPost: (id) => dispatch(getCommentsByPost(id)),
+        deletePost: (id) => dispatch(deletePost(id))
     }
 }
 

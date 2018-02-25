@@ -28,6 +28,14 @@ function commentReducer(state=[], action){
             );
         case types.ADD_COMMENT:
             return state.concat([comment]);
+        case types.DELETE_COMMENT:
+            return (
+                state.map(commentInState => {
+                    if (commentInState.id === comment.id) { 
+                        commentInState = comment }
+                    return commentInState
+                })
+            )
         default:
             return state;
     }
@@ -52,7 +60,13 @@ function postReducer(state = [], action) {
         case types.GET_POSTS_BY_CATEGORY:
             return [...posts];
         case types.GET_POST_BY_ID:
-            return [post]
+            return [post];
+        case types.DELETE_POST:
+            return  state.map(postInState => {
+                if (postInState.id === post.id) { 
+                    postInState = post }
+                return postInState
+            });
         default:
             return state;
     }

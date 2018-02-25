@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getCommentsByPost, voteComments } from '../../actions';
+import { voteComments, deleteComment } from '../../actions';
 import DisplayComment from './DisplayComment';
 import AddNewComment from './AddNewComment';
 
 class ListCommentsForPost extends Component {
-  
-
     render() {
-        const { comments, voteComments } = this.props
- 
+        const { comments, voteComments, deleteComment } = this.props
+
         return (
             <div className="container">
                 <div className="row">
@@ -17,15 +15,23 @@ class ListCommentsForPost extends Component {
                         <h3>Comments...</h3>
                     </div>
                     <div className="col-md-6">
-                        <AddNewComment parentId={this.props.parentId}/>
+                        <AddNewComment parentId={this.props.parentId} />
                     </div>
-                   
+
                 </div>
                 <div className="row">
                     <div className="col-md-12">
                         <ul>
                             {comments.map(comment =>
-                                <li key={comment.id}><DisplayComment comment={comment} voteComments={voteComments} /></li>)
+                                ((comment.deleted === false) ?
+                                    (<li key={comment.id}>
+                                        <DisplayComment
+                                            comment={comment}
+                                            voteComments={voteComments}
+                                            deleteComment={deleteComment}
+                                        />
+                                    </li>) : '')
+                            )
                             }
                         </ul>
                     </div>
@@ -43,7 +49,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        voteComments: (id, typeOfVote) => dispatch(voteComments(id, typeOfVote))
+        voteComments: (id, typeOfVote) => dispatch(voteComments(id, typeOfVote)),
+        deleteComment: (id) => dispatch(deleteComment(id))
     }
 }
 
