@@ -48,7 +48,7 @@ class AddNewComment extends Component {
         const { openModal } = this.state;
         return(
             <div className="container">
-            <button onClick={this.onOpenModal}>Add new Commnet</button>
+            <button className="btn btn-info" onClick={this.onOpenModal}>Add new Commnet</button>
             <Modal open={openModal} onClose={this.onCloseModal} little>
             <h3>Add new comment</h3>
                 <form className="needs-validation" noValidate onSubmit={this.onSubmit}>

@@ -33,9 +33,9 @@ class ListPost extends Component {
                         </Link>
                     </div>
                 </div>
-                <ul>
+                <ul className="list-group">
                     {posts && posts.map((post) =>
-                        <li key={post.id}>
+                        <li key={post.id} className="list-group-item">
                             <ListPostDetail post={post} votePost={votePost}/>
                         </li>)}
                 </ul>

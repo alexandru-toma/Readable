@@ -12,7 +12,7 @@ class ListCommentsForPost extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <h3>Comments...</h3>
+                        <h3 className="page-header">All comments</h3>
                     </div>
                     <div className="col-md-6">
                         <AddNewComment parentId={this.props.parentId} />
@@ -21,10 +21,10 @@ class ListCommentsForPost extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <ul>
+                        <ul className="list-group">
                             {comments.map(comment =>
                                 ((comment.deleted === false) ?
-                                    (<li key={comment.id}>
+                                    (<li key={comment.id} className="list-group-item">
                                         <DisplayComment
                                             comment={comment}
                                             voteComments={voteComments}

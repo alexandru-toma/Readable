@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getCategories, addNewPost } from '../../actions';
 
 class NewPost extends Component {
+
     state = {
         title: "",
         body: "",
@@ -12,13 +13,17 @@ class NewPost extends Component {
 
     componentWillMount() {
         const { getCategories } = this.props
-        getCategories();    
-        
+        getCategories();
     }
-    
+
+    componentDidMount() {
+        this.props.categories && this.props.categories.map((category, index) =>
+            (index === 0) && this.setState({ category: category.name })
+        )
+    }
+
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(e)
     }
 
     handleTitleChange = (e) => {
@@ -37,9 +42,9 @@ class NewPost extends Component {
         this.setState({ category: e.target.value });
     }
 
-    handleSubmit = (e) => { 
+    handleSubmit = (e) => {
         e.preventDefault();
-        const uuidv1 = require('uuid/v1');       
+        const uuidv1 = require('uuid/v1');
         const postBody = {
             id: uuidv1(),
             timestamp: Date.now(),
@@ -73,7 +78,7 @@ class NewPost extends Component {
                         <input type="text" className="form-control" id="authorPost" placeholder="Author post"
                             required value={this.state.author} onChange={this.handleAuthorChange} />
                     </div>
-                    <select className="form-control" id={this.state.category} 
+                    <select className="form-control" id={this.state.category}
                         value={this.state.category} onChange={this.handleCategoryChange}>
                         <option value="noValue" disabled>Select category...</option>
                         {categories && categories.map(category =>

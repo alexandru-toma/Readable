@@ -6,7 +6,7 @@ import { editComment } from '../../actions';
 
 class DisplayComment extends Component {
     state = {
-        body: "",
+        body: this.props.comment.body,
         openModal: false
     }
 
@@ -41,22 +41,13 @@ class DisplayComment extends Component {
                         <span onClick={() => { this.props.voteComments(this.props.comment.id, "upVote") }}>
                             <Glyphicon glyph="arrow-up" />
                         </span>
-                    </div>
-                </div>
-                <div className="row">
-                    <div>
                         <span onClick={() => { this.props.voteComments(this.props.comment.id, "downVote") }}>
                             <Glyphicon glyph="arrow-down" />
                         </span>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col">
+                    <div className="col-sm-2">
                         <span>{this.props.comment.author}   </span>
                         <span> <b>{this.props.comment.voteScore} point/s</b></span>
-                    </div>
-                    <div className="col">
-
                     </div>
                 </div>
                 <div className="row">
@@ -64,10 +55,11 @@ class DisplayComment extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-1">
-                        <span onClick={this.onOpenModal}>edit</span>
+                        <span className="btn btn-outline-info btn-sm" onClick={
+                            this.onOpenModal}>edit</span>
                     </div>
                     <div className="col-md-1">
-                        <span onClick={() => {
+                        <span className="btn btn-outline-info btn-sm" onClick={() => {
                             this.handleOnDelete()
                         }}>delete</span>
                     </div>
@@ -77,8 +69,8 @@ class DisplayComment extends Component {
                     <form className="needs-validation" noValidate onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <label htmlFor="bodyPost">Body:</label>
-                            <input type="text" className="form-control" id="bodyPost" placeholder="Body comment"
-                                required value={this.state.body} onChange={this.handleBodyChange} />
+                            <input type="text" className="form-control" id="bodyPost" value={this.state.body}
+                                required onChange={this.handleBodyChange} />
                         </div>
                         <br></br>
                         <div className="row">

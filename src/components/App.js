@@ -16,11 +16,11 @@ class App extends Component {
     const { categories } = this.props;
     return (
       <div>
-        <div className="all-categories">
-          <h2>All categories</h2>
-          <ul>
+        <div className="jumbotron">
+          <h2 className="page-header">All categories</h2>
+          <ul className="list-group">
             {categories && categories.map((category) =>
-              <li key={category.name}>
+              <li key={category.name} className="list-group-item">
                 <Link to={`${category.path}`}>
                   <b>{category.name}</b>
                 </Link>
@@ -28,7 +28,7 @@ class App extends Component {
           </ul>
         </div>
         <div className="all-posts">
-          <h2>All Posts</h2>
+          <h2 className="page-header">All Posts</h2>
           <ListPost/>
         </div>
       </div>

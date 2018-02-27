@@ -13,16 +13,17 @@ function categoryReducer(state = [], action) {
     }
 }
 
-function commentReducer(state=[], action){
+function commentReducer(state = [], action) {
     const { comments, comment } = action
     switch (action.type) {
-        case  types.GET_COMMENTS_BY_POST:
+        case types.GET_COMMENTS_BY_POST:
             return [...comments];
         case types.VOTE_COMMENTS:
             return (
                 state.map(commentInState => {
-                    if (commentInState.id === comment.id) { 
-                        commentInState = comment }
+                    if (commentInState.id === comment.id) {
+                        commentInState = comment
+                    }
                     return commentInState
                 })
             );
@@ -31,19 +32,21 @@ function commentReducer(state=[], action){
         case types.DELETE_COMMENT:
             return (
                 state.map(commentInState => {
-                    if (commentInState.id === comment.id) { 
-                        commentInState = comment }
+                    if (commentInState.id === comment.id) {
+                        commentInState = comment
+                    }
                     return commentInState
                 })
             );
         case types.EDIT_COMMENT:
             return (
                 state.map(commentInState => {
-                    if (commentInState.id === comment.id) { 
-                        commentInState = comment }
+                    if (commentInState.id === comment.id) {
+                        commentInState = comment
+                    }
                     return commentInState
-            })
-        );
+                })
+            );
         default:
             return state;
     }
@@ -70,11 +73,19 @@ function postReducer(state = [], action) {
         case types.GET_POST_BY_ID:
             return [post];
         case types.DELETE_POST:
-            return  state.map(postInState => {
-                if (postInState.id === post.id) { 
-                    postInState = post }
+            return state.map(postInState => {
+                if (postInState.id === post.id) {
+                    postInState = post
+                }
                 return postInState
             });
+        case types.EDIT_POST:
+            return (
+                state.map(postInState => {
+                    if (postInState.id === post.id) { postInState = post }
+                    return postInState
+                })
+            );
         default:
             return state;
     }
