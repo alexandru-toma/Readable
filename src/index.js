@@ -17,10 +17,10 @@ import NotFound from "./components/NotFound";
 import NewPost from "./components/post/NewPost";
 
 
-export const history = createHistory()
+export const history = createHistory();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middleware = [
+const middleware = [    
     thunk,
     routerMiddleware(history)
 ]
@@ -30,7 +30,7 @@ const store = createStore(
     composeEnhancers(
         applyMiddleware(...middleware)
     )
-)
+);
 
 ReactDOM.render(
     <Provider store={store} >
