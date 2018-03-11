@@ -52,8 +52,7 @@ In order to install and launch the project, please do the following:
 ## Backend Server
 
 To simplify the development process, the project got provided a node server project to start with and initial set of data.
-To get more info about the backend, check git hub repository and it's README.md file : https://github.com/udacity/reactnd-project-readable-starter
-
+To get more info about the backend, check git hub repository and it's README.md file :
 ## Important
 The backend API has a limited number of Categories (redux, udacity, react). To add more, the api-server project needs to be changed.
 

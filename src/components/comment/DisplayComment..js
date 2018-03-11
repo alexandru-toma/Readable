@@ -78,7 +78,7 @@ class DisplayComment extends Component {
                         </div>
                     </form>
                 </Modal>
-            </div>
+             </div>
         );
     }
 }
