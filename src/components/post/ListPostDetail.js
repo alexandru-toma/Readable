@@ -64,6 +64,7 @@ class ListPostDetails extends Component {
                         <Link to={`${this.props.post.category}/${this.props.post.id}`}>
                             <h3>{this.props.post.title}</h3>
                         </Link>
+                        <h5>by {this.props.post.author}</h5>
                     </div>
                 </div>
                 <div className="post-body">
