@@ -1,13 +1,21 @@
-# MyReads Project
+# Readable Project
 
-This is Alexandru Toma's project Readable done for Udacity's React Redux course. The goal of this project is to show that the student has developed the necessary skills learned through 2nd stage of the course.
+This is Alexandru Toma's project Readable done for Udacity's React Redux course.
+The goal of this project is to show that the student has developed the necessary skills learned through 2nd stage of the course.
 
-## TL;DR
+## Installation
+
+### Client Installation
 
 In order to install and launch the project, please do the following:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
+
+### Server Installation
+
+* Readable API server can be found at the following [link:](https://github.com/udacity/reactnd-project-readable-starter).
+* Inspect the README file to get more info about the installation of this specific part.
 
 ## What You're Getting
 ```bash
@@ -49,12 +57,10 @@ In order to install and launch the project, please do the following:
      
 ```
 
-## Backend Server
-
-To simplify the development process, the project got provided a node server project to start with and initial set of data.
-To get more info about the backend, check git hub repository and it's README.md file :
 ## Important
-The backend API has a limited number of Categories (redux, udacity, react). To add more, the api-server project needs to be changed.
+
+* The backend Server API needs to be started so the Readable project can have access to its data.
+* The backend API has a limited number of Categories (redux, udacity, react). To add more, the api-server project needs to be changed.
 
 ## Create React App
 
@@ -64,4 +70,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This repository is an initial version of the Readable application, and represents a personal project. Therefore, I most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## License 
+
+This is part of Udacity React Nanodegree, so please refer to [Udacity Terms of Service](https://eu.udacity.com/legal) for further information.
