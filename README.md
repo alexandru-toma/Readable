@@ -14,12 +14,11 @@ In order to install and launch the project, please do the following:
 
 ### Server Installation
 
-* Readable API server can be found at the following [link:](https://github.com/udacity/reactnd-project-readable-starter).
+* Readable API server can be found at the following [link](https://github.com/udacity/reactnd-project-readable-starter).
 * Inspect the README file to get more info about the installation of this specific part.
 
 ## What You're Getting
 ```bash
-├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── .gitignore # files and folders to be ignored by git

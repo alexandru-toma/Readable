@@ -6,7 +6,7 @@ import ListPost from "./post/ListPost";
 import { Link } from "react-router-dom";
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const { getCategories, getAllPosts } = this.props;
     getAllPosts();
     getCategories();
