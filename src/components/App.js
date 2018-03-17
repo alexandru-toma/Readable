@@ -26,9 +26,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({categoryReducer}) {
   return {
-    categories: state.categoryReducer,
+    categories: categoryReducer,
   }
 }
 
