@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux'
-import { getCategories,  getPosts } from '../actions'
+import { getCategories,  getPosts } from '../actions';
 import ListPost from "./post/ListPost";
-import { Link } from "react-router-dom";
+import DisplayCategories from "./categories/DisplayCategories";
 
 class App extends Component {
   componentDidMount() {
@@ -16,17 +16,7 @@ class App extends Component {
     const { categories } = this.props;
     return (
       <div>
-        <div className="jumbotron">
-          <h2 className="page-header">All categories</h2>
-          <ul className="list-group">
-            {categories && categories.map((category) =>
-              <li key={category.name} className="list-group-item">
-                <Link to={`${category.path}`}>
-                  <b>{category.name}</b>
-                </Link>
-              </li>)}
-          </ul>
-        </div>
+        <DisplayCategories categories={categories}/>
         <div className="all-posts">
           <h2 className="page-header">All Posts</h2>
           <ListPost/>
