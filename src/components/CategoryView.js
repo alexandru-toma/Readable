@@ -1,19 +1,19 @@
-import React, {Component} from 'react'
-import {getPostsByCategory} from '../actions';
+import React, { Component } from 'react'
+import { getPostsByCategory } from '../actions/posts';
 import { connect } from 'react-redux';
 import ListPost from './post/ListPost';
 
 class CategoryView extends Component {
-    componentWillMount(){
+    componentWillMount() {
         const { getPostsByCategory } = this.props
         getPostsByCategory(this.props.match.params.category);
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <h1>{this.props.match.params.category}</h1>
-                <ListPost/>
+                <ListPost />
             </div>
         );
     }

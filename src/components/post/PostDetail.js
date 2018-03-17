@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getPostById, getCommentsByPost } from '../../actions';
+import { getPostById } from '../../actions/posts';
+import { getCommentsByPost } from '../../actions/comments';
 import { connect } from 'react-redux';
 import Timestamp from 'react-timestamp';
 import ListCommentsForPost from '../comment/ListCommentsForPost';

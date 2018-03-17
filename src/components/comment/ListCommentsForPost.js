@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { voteComments, deleteComment } from '../../actions';
+import { voteComments, deleteComment } from '../../actions/comments';
 import DisplayComment from './DisplayComment';
 import AddNewComment from './AddNewComment';
 

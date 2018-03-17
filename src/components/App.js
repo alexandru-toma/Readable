@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux'
-import { getCategories,  getPosts } from '../actions';
+import { getPosts } from '../actions/posts';
+import { getCategories } from '../actions/categories';
 import ListPost from "./post/ListPost";
 import DisplayCategories from "./categories/DisplayCategories";
 

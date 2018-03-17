@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 import Modal from 'react-responsive-modal';
-import { editPost, deletePost } from '../../actions';
+import { editPost, deletePost } from '../../actions/posts';
 import { connect } from 'react-redux';
 
 class ListPostDetails extends Component {

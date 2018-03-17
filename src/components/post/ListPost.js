@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 import { connect } from 'react-redux'
-import { votePost, postSortOrder } from '../../actions'
+import { votePost, postSortOrder } from '../../actions/posts'
 import ListPostDetail from './ListPostDetail';
 
 class ListPost extends Component {

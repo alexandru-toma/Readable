@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCategories, addNewPost } from '../../actions';
+import { getCategories } from '../../actions/categories';
+import { addNewPost } from '../../actions/posts';
 
 class NewPost extends Component {
 

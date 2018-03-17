@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import Modal from 'react-responsive-modal';
 import { connect } from 'react-redux';
-import { editComment } from '../../actions';
+import { editComment } from '../../actions/comments';
 
 class DisplayComment extends Component {
     state = {
