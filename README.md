@@ -27,13 +27,15 @@ In order to install and launch the project, please do the following:
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── styles
-    |   ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    │   └── index.css # Global styles. You probably won't need to change anything here.
+        ├── App.css # Styles for your app. Feel free to customize this as you desire.
+        └── index.css # Global styles. You probably won't need to change anything here.
     ├── actions
-    |   ├── actionsTypes.js # Strings of action types.
-    │   └── index.js # Action object.
+        ├── actionsTypes.js # Strings of action types.
+        ├── categories.js # Actions for categories.
+        ├── comments.js # Actions for comments.
+        └── posts.js # Actions for posts.
     ├── api
-    │   └── readableAPi.js # The readable API calls.
+        └── readableAPi.js # The readable API calls.
     └── components
         ├── comment
             ├── AddNewComment.js # Add a new comment form, state handled in component.
@@ -44,11 +46,14 @@ In order to install and launch the project, please do the following:
             ├── ListPostDetail.js #List all the details of a post.
             ├── NewPost.js # Add a new post form, state handled in component.
             └── PostDetail.js # Post Detail view component.
-    │   ├── App.js # Renders a book on the page, takes props 
-    │   ├── CategoryView.js # Top of the dashboard page with categories display.
-    │   └── NotFound.js # Error page for inexistent Route.
+        ├── App.js # Renders a book on the page, takes props 
+        ├── CategoryView.js # Top of the dashboard page with categories display.
+        └── NotFound.js # Error page for inexistent Route.
     ├── reducers
-    │   └── index.js # Reducers pure functions.
+        ├── category.js # Category reducer.
+        ├── comment.js # Comment reducer.
+        ├── index.js # Merge all reducers in one.
+        └── post.js # Post reducer.
     ├── App.js # Contains logic for calling API with functions and Routing of the page.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── icons # Helpful images for your app. Use at your discretion.
